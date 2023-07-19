@@ -1,8 +1,7 @@
 use std::fs::read_to_string;
-use std::collections::HashMap;
 
-fn get_score(shapes: &HashMap<char, i32>, elf: char, you: char) -> i32 {
-    let shape_val: i32 = *shapes.get(&elf).unwrap();
+fn get_score(elf: char, you: char) -> u32 {
+    let shape_val: u32 = elf as u32 - 'A' as u32;
     match you {
         'X' => (shape_val + 2) % 3 + 1,
         'Y' => shape_val + 4,
@@ -12,16 +11,10 @@ fn get_score(shapes: &HashMap<char, i32>, elf: char, you: char) -> i32 {
 }
 
 fn main() -> std::io::Result<()> {
-    let shapes: HashMap<char, i32> = HashMap::from([
-        ('A', 0),
-        ('B', 1),
-        ('C', 2)
-    ]);
-
-    let total: i32 = read_to_string("day-2/input.txt")
+    let total: u32 = read_to_string("day-2/input.txt")
         .unwrap()
         .lines()
-        .map(|x| get_score(&shapes, x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap()))
+        .map(|x| get_score(x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap()))
         .sum();
 
     println!("{}", total);
