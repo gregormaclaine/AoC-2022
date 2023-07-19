@@ -1,5 +1,4 @@
-import timeit
-
+#!/usr/bin/python3
 
 def main():
     with open('day-1/input.txt', 'r') as f:
@@ -20,4 +19,4 @@ def main():
         return elves[max_i]
 
 
-print(timeit.timeit(main, number=1000))
+print(main())
