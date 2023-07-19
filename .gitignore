@@ -3,3 +3,4 @@ bm
 temp/
 temp.*
 *.bin
+bin/
