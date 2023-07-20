@@ -6,7 +6,7 @@ def get_priority(char):
 
 
 def main():
-    with open('day-3/input.txt', 'r') as f:
+    with open('input/day-3.txt', 'r') as f:
         total = 0
 
         for line in f.readlines():
@@ -20,7 +20,7 @@ def main():
 
             for c in line[mid_point:]:
                 if c in letters:
-                    print(c, get_priority(c))
+                    # print(c, get_priority(c))
                     total += get_priority(c)
                     break
 

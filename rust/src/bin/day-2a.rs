@@ -22,7 +22,7 @@ fn main() -> std::io::Result<()> {
         ('Z', 2)
     ]);
 
-    let total: u32 = read_to_string("day-2a/input.txt")
+    let total: u32 = read_to_string("input/day-2.txt")
         .unwrap()
         .lines()
         .map(|x| get_score(&shapes, x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap()))

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def main():
-    with open('day-1/input.txt', 'r') as f:
+    with open('input/day-1.txt', 'r') as f:
         elves = []
         running_total = 0
         for line in f.readlines():

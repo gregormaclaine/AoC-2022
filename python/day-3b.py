@@ -6,7 +6,7 @@ def get_priority(char):
 
 
 def main():
-    with open('day-3/input.txt', 'r') as f:
+    with open('input/day-3.txt', 'r') as f:
         total = 0
 
         lines = f.read().split('\n')
