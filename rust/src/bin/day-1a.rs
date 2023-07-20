@@ -1,5 +1,5 @@
 fn main() -> std::io::Result<()> {
-    let lines: Vec<String> = include_str!("./input.txt")
+    let lines: Vec<String> = include_str!("../../../input/day-1.txt")
         .split("\n")
         .map(String::from)
         .collect();

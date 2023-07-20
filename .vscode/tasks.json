@@ -6,7 +6,7 @@
     {
       "label": "Run Rust Solution",
       "type": "shell",
-      "command": "clear && rustc ${file} -o ./bin/${fileDirnameBasename} && ./bin/${fileDirnameBasename}"
+      "command": "clear && rustc ${file} -o ./bin/${fileBasenameNoExtension}.bin && ./bin/${fileBasenameNoExtension}.bin"
     }
   ]
 }
