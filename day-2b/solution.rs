@@ -11,7 +11,7 @@ fn get_score(elf: char, you: char) -> u32 {
 }
 
 fn main() -> std::io::Result<()> {
-    let total: u32 = read_to_string("day-2/input.txt")
+    let total: u32 = read_to_string("day-2a/input.txt")
         .unwrap()
         .lines()
         .map(|x| get_score(x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap()))

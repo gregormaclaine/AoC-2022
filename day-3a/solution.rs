@@ -33,7 +33,7 @@ fn get_line_val(line: &str) -> u32 {
 }
 
 fn main() -> std::io::Result<()> {
-    let total: u32 = read_to_string("day-3/input.txt")
+    let total: u32 = read_to_string("day-3a/input.txt")
         .unwrap()
         .lines()
         .map(get_line_val)

@@ -1,9 +1,6 @@
-use std::fs::read_to_string;
-
 fn main() -> std::io::Result<()> {
-    let lines: Vec<String> = read_to_string("day-1/input.txt")
-        .unwrap()
-        .lines()
+    let lines: Vec<String> = include_str!("./input.txt")
+        .split("\n")
         .map(String::from)
         .collect();
 

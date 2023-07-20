@@ -29,7 +29,7 @@ fn get_group_val(line1: &str, line2: &str, line3: &str) -> u32 {
 }
 
 fn main() -> std::io::Result<()> {
-    let binding = read_to_string("day-3/input.txt").unwrap();
+    let binding = read_to_string("day-3a/input.txt").unwrap();
     let mut lines = binding.lines();
 
     let mut total: u32 = 0;
