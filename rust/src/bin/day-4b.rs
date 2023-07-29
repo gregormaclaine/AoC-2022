@@ -1,7 +1,8 @@
 use std::num::ParseIntError;
 
 fn parse_line(line: &str) -> Result<bool, ParseIntError> {
-    let split: Vec<Vec<u32>> = line.split(',')
+    let split: Vec<Vec<u32>> = line
+        .split(',')
         .map(|x| x.split('-').map(|x| x.parse::<u32>().unwrap()).collect())
         .collect();
 
@@ -17,9 +18,9 @@ fn parse_line(line: &str) -> Result<bool, ParseIntError> {
 fn main() -> std::io::Result<()> {
     let count: u32 = include_str!("../../../input/day-4.txt")
         .split("\n")
-        .map(|x| if parse_line(x).unwrap() {1} else {0})
+        .map(|x| if parse_line(x).unwrap() { 1 } else { 0 })
         .sum();
-    
+
     println!("{}", count);
     Ok(())
 }

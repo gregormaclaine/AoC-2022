@@ -3,9 +3,9 @@ fn main() -> std::io::Result<()> {
         .split("\n\n")
         .map(|x| x.split('\n').map(|x| x.parse::<u32>().unwrap()).sum())
         .collect();
-    
+
     lines.sort();
-    
+
     let total: u32 = (&lines[(lines.len() - 3)..lines.len()]).into_iter().sum();
 
     println!("{}", total);

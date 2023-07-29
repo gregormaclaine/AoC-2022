@@ -5,21 +5,21 @@ type CMDLine<'a> = (&'a str, &'a str, Option<&'a str>);
 fn calc_folder_size(
     lines: &Vec<CMDLine>,
     cur_line: &mut usize,
-    sizes: &mut Vec<u32>) -> Result<u32, ParseIntError> {
-
+    sizes: &mut Vec<u32>,
+) -> Result<u32, ParseIntError> {
     let mut size: u32 = 0;
 
     while *cur_line < lines.len() {
         // println!("{:?}", lines[*cur_line]);
-        
+
         match lines[*cur_line] {
             ("$", "cd", Some("..")) => break,
             ("$", "cd", Some(_)) => {
                 *cur_line += 1;
                 size += calc_folder_size(lines, cur_line, sizes).unwrap();
-            },
-            ("$", "ls", _) => {},
-            ("dir", _, _) => {},
+            }
+            ("$", "ls", _) => {}
+            ("dir", _, _) => {}
             (s, _, _) => {
                 size += s.parse::<u32>().unwrap();
             }

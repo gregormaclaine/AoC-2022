@@ -1,5 +1,5 @@
-use std::fs::read_to_string;
 use std::collections::HashMap;
+use std::fs::read_to_string;
 
 fn get_score(shapes: &HashMap<char, u32>, elf: char, you: char) -> u32 {
     let score: u32 = 1 + shapes.get(&you).unwrap();
@@ -13,19 +13,19 @@ fn get_score(shapes: &HashMap<char, u32>, elf: char, you: char) -> u32 {
 }
 
 fn main() -> std::io::Result<()> {
-    let shapes: HashMap<char, u32> = HashMap::from([
-        ('A', 0),
-        ('B', 1),
-        ('C', 2),
-        ('X', 0),
-        ('Y', 1),
-        ('Z', 2)
-    ]);
+    let shapes: HashMap<char, u32> =
+        HashMap::from([('A', 0), ('B', 1), ('C', 2), ('X', 0), ('Y', 1), ('Z', 2)]);
 
     let total: u32 = read_to_string("input/day-2.txt")
         .unwrap()
         .lines()
-        .map(|x| get_score(&shapes, x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap()))
+        .map(|x| {
+            get_score(
+                &shapes,
+                x.chars().nth(0).unwrap(),
+                x.chars().nth(2).unwrap(),
+            )
+        })
         .sum();
 
     println!("{}", total);

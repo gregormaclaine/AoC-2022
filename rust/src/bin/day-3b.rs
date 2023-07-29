@@ -1,5 +1,5 @@
-use std::fs::read_to_string;
 use std::collections::HashMap;
+use std::fs::read_to_string;
 
 fn get_priority(c: char) -> u32 {
     let val = c as u32;
@@ -12,9 +12,13 @@ fn get_priority(c: char) -> u32 {
 fn get_group_val(line1: &str, line2: &str, line3: &str) -> u32 {
     let mut letters1: HashMap<char, bool> = HashMap::with_capacity(52);
     let mut letters2: HashMap<char, bool> = HashMap::with_capacity(52);
-    
-    for c in line1.chars() { letters1.insert(c, true); }
-    for c in line2.chars() { letters2.insert(c, true); }
+
+    for c in line1.chars() {
+        letters1.insert(c, true);
+    }
+    for c in line2.chars() {
+        letters2.insert(c, true);
+    }
 
     for c in line3.chars() {
         if let Some(_) = letters1.get(&c) {

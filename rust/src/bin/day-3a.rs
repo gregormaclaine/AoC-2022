@@ -1,5 +1,5 @@
-use std::fs::read_to_string;
 use std::collections::HashMap;
+use std::fs::read_to_string;
 
 fn get_priority(c: char) -> u32 {
     let val = c as u32;
@@ -13,7 +13,7 @@ fn get_line_val(line: &str) -> u32 {
     let mut letters: HashMap<char, bool> = HashMap::with_capacity(52);
     let mid_point: usize = line.len() >> 1;
     let mut chars = line.chars();
-    
+
     for _ in 0..mid_point {
         if let Some(c) = chars.next() {
             letters.insert(c, true);

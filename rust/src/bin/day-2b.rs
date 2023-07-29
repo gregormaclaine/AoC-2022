@@ -6,7 +6,7 @@ fn get_score(elf: char, you: char) -> u32 {
         'X' => (shape_val + 2) % 3 + 1,
         'Y' => shape_val + 4,
         'Z' => (shape_val + 1) % 3 + 7,
-         _  => 0,
+        _ => 0,
     }
 }
 

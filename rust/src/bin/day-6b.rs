@@ -12,8 +12,7 @@ fn main() -> std::io::Result<()> {
             break;
         }
 
-        bin_map ^= 1 << (input[i] as u32 - 'a' as u32) ^
-                   1 << (input[i - 14] as u32 - 'a' as u32);
+        bin_map ^= 1 << (input[i] as u32 - 'a' as u32) ^ 1 << (input[i - 14] as u32 - 'a' as u32);
     }
 
     Ok(())

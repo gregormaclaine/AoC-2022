@@ -25,7 +25,7 @@ fn main() -> std::io::Result<()> {
             if (i + 3) % 4 == 0 {
                 match c {
                     'A'..='Z' => piles[(i - 1) >> 2].push(c),
-                    _ => continue
+                    _ => continue,
                 }
             }
         }
@@ -33,7 +33,9 @@ fn main() -> std::io::Result<()> {
     // println!("{:?}", piles);
 
     // Enact moves
-    sections[1].to_owned().into_iter()
+    sections[1]
+        .to_owned()
+        .into_iter()
         .map(|x| parse_move_line(x).unwrap())
         .for_each(|(count, from, to)| {
             for _ in 0..count {
@@ -41,10 +43,8 @@ fn main() -> std::io::Result<()> {
                 piles[(to - 1) as usize].push(package);
             }
         });
-    
-    let top_items: String = piles.iter()
-        .map(|x| x.last().unwrap())
-        .collect();
+
+    let top_items: String = piles.iter().map(|x| x.last().unwrap()).collect();
     println!("{:?}", top_items);
     Ok(())
 }
