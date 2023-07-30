@@ -18,35 +18,6 @@ fn constrain(val: i32) -> i32 {
     }
 }
 
-// fn draw_grid(head: &(i32, i32), knots: &Vec<(i32, i32)>, size: i32) {
-//     println!("");
-//     let w = size >> 1;
-//     for j in (-w..w).rev() {
-//         for i in -w..w {
-//             let val = if head.0 == i && head.1 == j {
-//                 "H".to_owned()
-//             } else {
-//                 let mut num: usize = 0;
-//                 for k_i in 0..knots.len() {
-//                     if knots[k_i].0 == i && knots[k_i].1 == j {
-//                         num = k_i + 1;
-//                         break;
-//                     }
-//                 }
-//                 if num > 0 {
-//                     num.to_string()
-//                 } else if i == 0 && j == 0 {
-//                     "s".to_owned()
-//                 } else {
-//                     ".".to_owned()
-//                 }
-//             };
-//             print!("{} ", val);
-//         }
-//         println!("");
-//     }
-// }
-
 fn main() -> std::io::Result<()> {
     let grid: Vec<(&str, u32)> = include_str!("../../../input/day-9.txt")
         .split('\n')
@@ -76,19 +47,8 @@ fn main() -> std::io::Result<()> {
                 _ => (0, 0),
             };
 
-            //    M  A
-            //    M  A->B
-            //    M  _  B
-            //    M->A  B
-            //    _  M  B
-            // C->_  M  B
-
             for i in 0..knots.len() {
                 let new_head_knot = if i == 0 { new_head } else { knots[i - 1] };
-                // println!(
-                //     "{} -> {:?} {:?}",
-                //     i, knots[i], new_head_knot
-                // );
                 match dist(&knots[i], &new_head_knot) {
                     4 | 5 | 8 => {
                         // Moved far enough to not be connected
@@ -112,11 +72,7 @@ fn main() -> std::io::Result<()> {
             }
 
             head = new_head;
-            // println!("{:?}", movement);
-            // draw_grid(&head, &knots, 25);
         }
-        // println!("{:?}, {}", knots, count);
-        // draw_grid(&head, &knots, 25);
     }
 
     println!("{}", count);
